@@ -1,2 +1,2 @@
-# rust-fps
-Rust SDF renderer using OpenGL.
+# Roids
+ - Rust based boids simulation. 
