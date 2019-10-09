@@ -1,5 +1,4 @@
-
-/*#[macro_use] extern crate gfx;
+#[macro_use] extern crate gfx;
 
 extern crate gfx_window_glutin;
 extern crate glutin;
@@ -83,8 +82,8 @@ pub fn main()
 		device.cleanup();
 	}
 }
-*/
 
+/*
 use std::io;
 
 const DERP: f32 = 1e1;
@@ -142,4 +141,4 @@ fn main()
 	println!("The value of y is: {}, x is: {}", y, x);
 	print!("{}", factorial(8));
 }
-
+*/
