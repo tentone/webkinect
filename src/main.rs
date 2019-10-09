@@ -1,10 +1,9 @@
-#[macro_use] extern crate gfx;
+
+/*#[macro_use] extern crate gfx;
 
 extern crate gfx_window_glutin;
 extern crate glutin;
 
-
-use std::io;
 use gfx::traits::FactoryExt;
 use gfx::Device;
 use gfx_window_glutin as gfx_glutin;
@@ -12,9 +11,12 @@ use gfx_window_glutin as gfx_glutin;
 pub type ColorFormat = gfx::format::Srgba8;
 pub type DepthFormat = gfx::format::DepthStencil;
 
-const DERP: f32 = 1e1;
 const BLACK: [f32; 4] = [0.0, 0.0, 0.0, 1.0];
 const WHITE: [f32; 3] = [1.0, 1.0, 1.0];
+
+const RED: [f32; 3] = [1.0, 0.0, 0.0];
+const GREEN: [f32; 3] = [0.0, 1.0, 0.0];
+const BLUE: [f32; 3] = [0.0, 0.0, 1.0];
 
 const SQUARE: [Vertex; 3] = [
     Vertex { pos: [0.5, -0.5], color: WHITE },
@@ -42,6 +44,7 @@ pub fn main()
 	let (window, mut device, mut factory, mut main_color, mut main_depth) = gfx_glutin::init::<ColorFormat, DepthFormat>(builder, &events_loop);
 
 	let mut encoder: gfx::Encoder<_, _> = factory.create_command_buffer().into();
+
 	let pso = factory.create_pipeline_simple(
 		include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "./src/shaders/quad.vert")),
 		include_bytes!(concat!(env!("CARGO_MANIFEST_DIR"), "./src/shaders/quad.frag")),
@@ -49,6 +52,7 @@ pub fn main()
 	).unwrap();
 
 	let (vertex_buffer, slice) = factory.create_vertex_buffer_with_slice(&SQUARE, ());
+	
 	let mut data = pipe::Data {
 		vbuf: vertex_buffer,
 		out: main_color
@@ -56,11 +60,9 @@ pub fn main()
 
 	let mut running = true;
 
-
-
 	while running
 	{
-		events_loop.poll_events(|glutin::Event::WindowEvent{window_id: _, event}|
+		/*events_loop.poll_events(|glutin::Event::WindowEvent{window_id: _, event}|
 		{
 			use glutin::WindowEvent::*;
 			match event
@@ -71,9 +73,9 @@ pub fn main()
 					gfx_glutin::update_views(&window, &mut main_color, &mut main_depth);
 				}, _ => (),
 			}
-		});
+		});*/
 
-		encoder.clear(&main_color, BLACK);
+		encoder.clear(&mut main_color, BLACK);
 		encoder.draw(&slice, &pso, &data);
 		encoder.flush(&mut device);
 
@@ -81,7 +83,11 @@ pub fn main()
 		device.cleanup();
 	}
 }
+*/
 
+use std::io;
+
+const DERP: f32 = 1e1;
 
 fn factorial(n: i64) -> i64
 {
@@ -93,8 +99,16 @@ fn factorial(n: i64) -> i64
 	return n * factorial(n - 1);
 }
 
-fn tests()
+fn main()
 {
+	let s = String::from("xixi");
+	{
+		let s = String::from("derp");
+	}
+
+	println!("{}", s);
+	return;
+
 	println!("Guess the number!");
 
 	let x = 5;
@@ -108,7 +122,7 @@ fn tests()
 	println!("{}", guess);
 
 	let spaces = "   ";
-	let spaces_len: usize = spaces.len();
+	let _spaces_len: usize = spaces.len();
 
 	let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
@@ -126,7 +140,6 @@ fn tests()
 	};
 
 	println!("The value of y is: {}, x is: {}", y, x);
-
 	print!("{}", factorial(8));
-
 }
+
