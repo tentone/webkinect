@@ -17,11 +17,23 @@ const RED: [f32; 3] = [1.0, 0.0, 0.0];
 const GREEN: [f32; 3] = [0.0, 1.0, 0.0];
 const BLUE: [f32; 3] = [0.0, 0.0, 1.0];
 
-const SQUARE: [Vertex; 3] = [
-    Vertex { pos: [0.5, -0.5], color: WHITE },
-    Vertex { pos: [-0.5, -0.5], color: WHITE },
-    Vertex { pos: [-0.5, 0.5], color: WHITE }
+/*const SQUARE: [Vertex; 6] = [
+	Vertex { pos: [0.5, -0.5], color: WHITE },
+	Vertex { pos: [-0.5, -0.5], color: WHITE },
+	Vertex { pos: [-0.5, 0.5], color: WHITE },
+	Vertex { pos: [-0.5, 0.5], color: WHITE },
+	Vertex { pos: [0.5, 0.5], color: WHITE },
+	Vertex { pos: [0.5, -0.5], color: WHITE },
+];*/
+
+const SQUARE: &[Vertex] = &[
+	Vertex { pos: [0.5, -0.5], color: RED },
+	Vertex { pos: [-0.5, -0.5], color: WHITE },
+	Vertex { pos: [-0.5, 0.5], color: GREEN },
+	Vertex { pos: [0.5, 0.5], color: BLUE },
 ];
+
+const INDICES: &[u16] = &[0, 1, 2, 2, 3, 0];
 
 gfx_defines! {
     vertex Vertex {
@@ -50,8 +62,9 @@ pub fn main()
 		pipe::new()
 	).unwrap();
 
-	let (vertex_buffer, slice) = factory.create_vertex_buffer_with_slice(&SQUARE, ());
-	
+	//let (vertex_buffer, slice) = factory.create_vertex_buffer_with_slice(&SQUARE, ());
+	let (vertex_buffer, slice) = factory.create_vertex_buffer_with_slice(SQUARE, INDICES);
+
 	let mut data = pipe::Data {
 		vbuf: vertex_buffer,
 		out: main_color
@@ -74,7 +87,7 @@ pub fn main()
 			}
 		});*/
 
-		encoder.clear(&mut main_color, BLACK);
+		encoder.clear(&mut data.out, BLACK);
 		encoder.draw(&slice, &pso, &data);
 		encoder.flush(&mut device);
 
