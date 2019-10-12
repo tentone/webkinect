@@ -13,8 +13,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3f01d66-84ca-41f5-a810-1556f49dd599" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/textures/texture.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/quad.frag" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/quad.frag" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/quad.vert" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/quad.vert" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +40,16 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/textures" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tentone\Documents\Git\komodo\src\textures" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tentone\Documents\Git\komodo\src\textures" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -51,7 +63,33 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Cargo Command.Run komodo">
+    <configuration name="Expand komodo" type="CargoCommandRunConfiguration" factoryName="Cargo Command" editBeforeRun="true" temporary="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="expand --bin komodo --color=always --theme=GitHub --tests" />
+      <option name="allFeatures" value="false" />
+      <option name="nocapture" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Install cargo-expand" type="CargoCommandRunConfiguration" factoryName="Cargo Command" editBeforeRun="true">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="install --force cargo-expand" />
+      <option name="allFeatures" value="false" />
+      <option name="nocapture" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Run komodo" type="CargoCommandRunConfiguration" factoryName="Cargo Command" temporary="true">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="run --package komodo --bin komodo" />
@@ -81,6 +119,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Cargo Command.Run komodo" />
+        <item itemvalue="Cargo Command.Expand komodo" />
       </list>
     </recent_temporary>
   </component>
@@ -102,6 +141,7 @@
       <workItem from="1570631300009" duration="1199000" />
       <workItem from="1570888984071" duration="40000" />
       <workItem from="1570889311204" duration="2061000" />
+      <workItem from="1570900437371" duration="2045000" />
     </task>
     <servers />
   </component>
