@@ -11,12 +11,14 @@ use gfx_window_glutin as gfx_glutin;
 pub type ColorFormat = gfx::format::Srgba8;
 pub type DepthFormat = gfx::format::DepthStencil;
 
+// Colors
 const BLACK: [f32; 4] = [0.0, 0.0, 0.0, 1.0];
 const WHITE: [f32; 3] = [1.0, 1.0, 1.0];
 const RED: [f32; 3] = [1.0, 0.0, 0.0];
 const GREEN: [f32; 3] = [0.0, 1.0, 0.0];
 const BLUE: [f32; 3] = [0.0, 0.0, 1.0];
 
+// Square geometry
 const SQUARE: &[Vertex] = &[
 	Vertex { pos: [0.5, -0.5], uv: [1.0, 0.0], color: RED },
 	Vertex { pos: [-0.5, -0.5], uv: [0.0, 0.0], color: WHITE },
@@ -35,8 +37,8 @@ gfx_defines! {
 
     pipeline pipe {
         vbuf: gfx::VertexBuffer<Vertex> = (),
-        texture: gfx::TextureSampler<[f32; 4]> = "t_Awesome",
-        target: gfx::RenderTarget<ColorFormat> = "Target0",
+        texture: gfx::TextureSampler<[f32; 4]> = "t_texture",
+        target: gfx::RenderTarget<ColorFormat> = "target",
     }
 }
 
