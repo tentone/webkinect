@@ -53,7 +53,6 @@ fn load_texture<F, R>(factory: &mut F, path: &str) -> gfx::handle::ShaderResourc
 
 pub fn main()
 {
-
 	let events_loop = glutin::EventsLoop::new();
 	let builder = glutin::WindowBuilder::new().with_title("Window".to_string()).with_dimensions(800, 640).with_vsync();
 	let (window, mut device, mut factory, target, mut depth_target) = gfx_glutin::init::<ColorFormat, DepthFormat>(builder, &events_loop);
