@@ -17,7 +17,7 @@ gfx_defines! {
     pipeline pipe {
         vbuf: gfx::VertexBuffer<Vertex> = (),
         texture: gfx::TextureSampler<[f32; 4]> = "t_Texture",
-        target: gfx::RenderTarget<gfx::format::Srgba8> = "Target0",
+        target: gfx::RenderTarget<gfx::format::Srgba8> = "target",
     }
 }
 
