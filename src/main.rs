@@ -27,6 +27,7 @@ const RED: [f32; 3] = [1.0, 0.0, 0.0];
 const GREEN: [f32; 3] = [0.0, 1.0, 0.0];
 const BLUE: [f32; 3] = [0.0, 0.0, 1.0];
 
+// Square geometry
 const SQUARE: &[Vertex] = &[
 	Vertex { pos: [0.5, -0.5], uv: [1.0, 0.0], color: RED },
 	Vertex { pos: [-0.5, -0.5], uv: [0.0, 0.0], color: WHITE },
