@@ -6,10 +6,20 @@ extern crate image;
 
 use gfx::traits::FactoryExt;
 use gfx::Device;
-use gfx_window_glutin as gfx_glutin;
 
-pub type ColorFormat = gfx::format::Srgba8;
-pub type DepthFormat = gfx::format::DepthStencil;
+gfx_defines! {
+    vertex Vertex {
+        pos: [f32; 2] = "a_Pos",
+        uv: [f32; 2] = "a_Uv",
+        color: [f32; 3] = "a_Color",
+    }
+
+    pipeline pipe {
+        vbuf: gfx::VertexBuffer<Vertex> = (),
+        texture: gfx::TextureSampler<[f32; 4]> = "t_Texture",
+        target: gfx::RenderTarget<gfx::format::Srgba8> = "Target0",
+    }
+}
 
 const BLACK: [f32; 4] = [0.0, 0.0, 0.0, 1.0];
 const WHITE: [f32; 3] = [1.0, 1.0, 1.0];
@@ -26,35 +36,21 @@ const SQUARE: &[Vertex] = &[
 
 const INDICES: &[u16] = &[0, 1, 2, 2, 3, 0];
 
-gfx_defines! {
-    vertex Vertex {
-        pos: [f32; 2] = "a_Pos",
-        uv: [f32; 2] = "a_Uv",
-        color: [f32; 3] = "a_Color",
-    }
-
-    pipeline pipe {
-        vbuf: gfx::VertexBuffer<Vertex> = (),
-        texture: gfx::TextureSampler<[f32; 4]> = "t_Awesome",
-        target: gfx::RenderTarget<ColorFormat> = "Target0",
-    }
-}
-
 fn load_texture<F, R>(factory: &mut F, path: &str) -> gfx::handle::ShaderResourceView<R, [f32; 4]>  where F: gfx::Factory<R>, R: gfx::Resources
 {
 	let img = image::open(path).unwrap().to_rgba();
 	let (width, height) = img.dimensions();
 	let kind = gfx::texture::Kind::D2(width as u16, height as u16, gfx::texture::AaMode::Single);
-	let (_, view) = factory.create_texture_immutable_u8::<ColorFormat>(kind, &[&img]).unwrap();
+	let (_, view) = factory.create_texture_immutable_u8::<gfx::format::Srgba8>(kind, &[&img]).unwrap();
+
 	view
 }
 
 pub fn main()
 {
-
 	let events_loop = glutin::EventsLoop::new();
 	let builder = glutin::WindowBuilder::new().with_title("Window".to_string()).with_dimensions(800, 640).with_vsync();
-	let (window, mut device, mut factory, target, mut depth_target) = gfx_glutin::init::<ColorFormat, DepthFormat>(builder, &events_loop);
+	let (window, mut device, mut factory, target, mut depth_target) = gfx_window_glutin::init::<gfx::format::Srgba8, gfx::format::DepthStencil>(builder, &events_loop);
 
 	let mut encoder: gfx::Encoder<_, _> = factory.create_command_buffer().into();
 
@@ -87,7 +83,7 @@ pub fn main()
 				// ESC to exit
 				KeyboardInput(_, _, Some(glutin::VirtualKeyCode::Escape), _) | Closed => running = false, Resized(_, _) =>
 				{
-					gfx_glutin::update_views(&window, &mut data.target, &mut depth_target);
+					gfx_window_glutin::update_views(&window, &mut data.target, &mut depth_target);
 				}, _ => (),
 			}
 		});
@@ -100,63 +96,3 @@ pub fn main()
 		device.cleanup();
 	}
 }
-
-/*
-use std::io;
-
-const DERP: f32 = 1e1;
-
-fn factorial(n: i64) -> i64
-{
-	if n == 1
-	{
-		return 1;
-	} else if n == 0 { return 1; }
-
-	return n * factorial(n - 1);
-}
-
-fn main()
-{
-	let s = String::from("xixi");
-	{
-		let s = String::from("derp");
-	}
-
-	println!("{}", s);
-	return;
-
-	println!("Guess the number!");
-
-	let x = 5;
-	let y = 10;
-	println!("x = {} and y = {}", x, y);
-
-	println!("{}", DERP);
-
-	let mut guess: String = String::new();
-	io::stdin().read_line(&mut guess).expect("Failed to read line");
-	println!("{}", guess);
-
-	let spaces = "   ";
-	let _spaces_len: usize = spaces.len();
-
-	let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
-	let mut i: usize = 0;
-	while i < months.len()
-	{
-		println!("{}", months[i]);
-		i += 1;
-	}
-
-	let x = 5;
-	let y = {
-		let x = 3;
-		x + 1
-	};
-
-	println!("The value of y is: {}, x is: {}", y, x);
-	print!("{}", factorial(8));
-}
-*/

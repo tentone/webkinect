@@ -13,8 +13,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3f01d66-84ca-41f5-a810-1556f49dd599" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/geometry.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tests.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shaders/quad.frag" beforeDir="false" afterPath="$PROJECT_DIR$/src/shaders/quad.frag" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -24,6 +27,13 @@
   </component>
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,6 +48,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/textures" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+    <property name="org.rust.hideDetachedFileNotificationsC:/Users/joseferrao/Documents/Git/komodo/src/camera.rs" value="true" />
+    <property name="org.rust.hideDetachedFileNotificationsC:/Users/joseferrao/Documents/Git/komodo/src/geometry.rs" value="true" />
+    <property name="org.rust.hideToolchainNotifications" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -139,6 +152,8 @@
       <workItem from="1570889311204" duration="2061000" />
       <workItem from="1570900437371" duration="2045000" />
       <workItem from="1570958374667" duration="1223000" />
+      <workItem from="1573221396055" duration="31000" />
+      <workItem from="1573221509853" duration="679000" />
     </task>
     <servers />
   </component>
