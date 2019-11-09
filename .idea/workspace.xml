@@ -13,7 +13,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3f01d66-84ca-41f5-a810-1556f49dd599" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/object3d.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/geometry.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometry.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +49,7 @@
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="org.rust.hideDetachedFileNotificationsC:/Users/joseferrao/Documents/Git/komodo/src/camera.rs" value="true" />
     <property name="org.rust.hideDetachedFileNotificationsC:/Users/joseferrao/Documents/Git/komodo/src/geometry.rs" value="true" />
+    <property name="org.rust.hideDetachedFileNotificationsC:/Users/tentone/Documents/Git/komodo/src/geometry.rs" value="true" />
     <property name="org.rust.hideToolchainNotifications" value="true" />
   </component>
   <component name="RecentsManager">
@@ -150,6 +154,10 @@
       <workItem from="1570958374667" duration="1223000" />
       <workItem from="1573221396055" duration="31000" />
       <workItem from="1573221509853" duration="2063000" />
+      <workItem from="1573235753037" duration="197000" />
+      <workItem from="1573238495820" duration="1356000" />
+      <workItem from="1573303004777" duration="1202000" />
+      <workItem from="1573305725920" duration="2800000" />
     </task>
     <servers />
   </component>
