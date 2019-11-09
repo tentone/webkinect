@@ -22,17 +22,16 @@ gfx_defines! {
     }
 }
 
-struct Object3D {
+pub struct Object3D {
 	position: glm::Vec3,
 	scale: glm::Vec3,
 	rotation: glm::Vec3
 }
 
-struct Geometry {
-	vertex: &[Vertex],
-	indices: &[u16]
+pub struct Geometry<'a> {
+	vertex: &'a[Vertex],
+	indices: &'a[u16]
 }
-
 
 const BLACK: [f32; 4] = [0.0, 0.0, 0.0, 1.0];
 const WHITE: [f32; 3] = [1.0, 1.0, 1.0];
@@ -75,7 +74,7 @@ pub fn main()
 		pipe::new()
 	).unwrap();
 
-	let (vertex_buffer, slice) = factory.create_vertex_buffer_with_slice(&SQUARE.vertex, &SQUARE.indices);
+	let (vertex_buffer, slice) = factory.create_vertex_buffer_with_slice(SQUARE.vertex, SQUARE.indices);
 
 	let texture = load_texture(&mut factory, "./src/textures/texture.jpg");
 	let sampler = factory.create_sampler_linear();

@@ -13,9 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f3f01d66-84ca-41f5-a810-1556f49dd599" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/object3d.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/geometry.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/geometry.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -158,6 +156,7 @@
       <workItem from="1573238495820" duration="1356000" />
       <workItem from="1573303004777" duration="1202000" />
       <workItem from="1573305725920" duration="2800000" />
+      <workItem from="1573315687498" duration="1811000" />
     </task>
     <servers />
   </component>
