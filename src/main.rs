@@ -79,6 +79,8 @@ pub fn main()
 	let texture = load_texture(&mut factory, "./src/textures/texture.jpg");
 	let sampler = factory.create_sampler_linear();
 
+	let camera: glm::Mat4 = glm::perspective(1.0, 60.0, 0.0, 100.0);
+
 	let mut data = pipe::Data {
 		vbuf: vertex_buffer,
 		texture: (texture, sampler),
