@@ -13,6 +13,8 @@ gfx_defines! {
         pos: [f32; 2] = "a_Pos",
         uv: [f32; 2] = "a_Uv",
         color: [f32; 3] = "a_Color",
+        transform: [f32; 16],
+        projection: [f32; 16],
     }
 
     pipeline pipe {
