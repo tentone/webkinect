@@ -1,20 +1,49 @@
+#[cfg(feature = "dx12")]
+use gfx_backend_dx12 as back;
+#[cfg(feature = "metal")]
+use gfx_backend_metal as back;
+#[cfg(feature = "vulkan")]
+use gfx_backend_vulkan as back;
+
 use winit;
+use log;
 
 pub fn main()
 {
+    simple_logger::init().unwrap();
+
     // Create a new window
-    let mut window = WinitState::default();
+    let mut window_state = WinitState::default();
+    let mut hal_state = HalState::new(&winit_state.window);
+    let mut local_state = LocalState::default();
 
     // Running loop
-    let mut running = true;
-    while running {
-        window.events.poll_events(|event| match event {
-            winit::Event::WindowEvent {
-                event: winit::WindowEvent::CloseRequested, ..
-            } => running = false, _ => (),
-        });
+    loop  {
+        let inputs = UserInput::poll_events_loop(&mut winit_state.event_loop);
+        if inputs.end_requested {
+            break;
+        }
+
+        local_state.update_from_input(inputs);
+
+        if let Err(e) = do_the_render(&mut hal_state, &local_state) {
+            error!("Rendering Error: {:?}", e);
+            break;
+        }
+    }
+
+    pub fn do_the_render(hal: &mut HalState, locals: &LocalState) -> Result<(), &str> {
+        hal.draw_clear_frame(locals.color())
     }
 }
+
+
+impl HalState {
+    pub fn draw_clear_frame(&mut self, color: [f32; 4]) -> Result<(), &'static str> {
+        unimplemented!()
+    }
+}
+
 
 /// Structure to store the state of the window
 pub struct WinitState {
