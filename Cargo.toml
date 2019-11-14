@@ -5,8 +5,4 @@ authors = ["tentone <tentone@outlook.com>"]
 edition = "2018"
 
 [dependencies]
-gfx = "0.16"
-gfx_window_glutin = "0.16"
-glutin = "0.8"
-image = "0.22.3"
-nalgebra-glm = "0.1"
+winit = "0.18"
