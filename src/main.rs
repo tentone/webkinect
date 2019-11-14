@@ -7,6 +7,8 @@ use gfx_backend_vulkan as back;
 
 use winit;
 use log;
+use arrayvec;
+use gfx_hal;
 
 pub fn main()
 {
@@ -38,9 +40,28 @@ pub fn main()
 }
 
 
+pub struct Submission {
+    pub command_buffers: IntoIterator<Item = &'a gfx_hal::command::Submittable<B, C, gfx_hal::command::Primary>>,
+    pub wait_semaphores: IntoIterator<Item = (&'a std::borrow::Borrow<B::Semaphore>, gfx_hal::command::PipelineStage)>,
+    pub signal_semaphores: IntoIterator<Item = &'a std::borrow::Borrow<B::Semaphore>>,
+}
+
 impl HalState {
     pub fn draw_clear_frame(&mut self, color: [f32; 4]) -> Result<(), &'static str> {
-        unimplemented!()
+        // Submission
+        let command_buffers: arrayvec::ArrayVec<[_; 1]> = [the_command_buffer].into();
+        let wait_semaphores: arrayvec::ArrayVec<[_; 1]> = [(image_available, PipelineStage::COLOR_ATTACHMENT_OUTPUT)].into();
+        let signal_semaphores: arrayvec::ArrayVec<[_; 1]> = [render_finished].into();
+        let present_wait_semaphores: arrayvec::ArrayVec<[_; 1]> = [render_finished].into();
+        let submission = Submission {
+            command_buffers,
+            wait_semaphores,
+            signal_semaphores,
+        };
+        unsafe {
+            the_command_queue.submit(submission, Some(flight_fence));
+            the_swapchain.present(&mut the_command_queue, i_u32, present_wait_semaphores).map_err(|_|"Failed to present into the swapchain!")
+        }
     }
 }
 
