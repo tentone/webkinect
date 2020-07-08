@@ -10,9 +10,9 @@
 ### Usage Example
 
 - There is a usage example available in the example page intended to be used alongside with [three.js](https://threejs.org/)
-
 - The communication with the server is performed using  `JSON` encoded messages for the skeleton data and `Blob` encoded binary data for the images captured from the cameras.
 - Here is a basic example of how we can exchange information with the Kinect server.
+- The URL of the image could be easily placed inside of an `img` element for visualization. Its also possible to copy the blob data to a `WebGL` texture for processing.
 
 ```javascript
 var socket = new WebSocket("ws://127.0.0.1:8181");
@@ -35,7 +35,7 @@ socket.onmessage = function(event) {
 	// Camera feed
 	else if(event.data instanceof Blob) {
 		var camera = event.data;
-        var url = URL.createObjectURL(event.data);
+		var url = URL.createObjectURL(event.data);
 		// ...
 	}
 };
